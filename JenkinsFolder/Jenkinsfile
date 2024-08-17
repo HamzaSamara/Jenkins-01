@@ -8,12 +8,15 @@ pipeline {
                 sh 'uname -a'
             }
         }
+    }
 
     stages {
         stage('Check The User') {
             steps {
                 sh 'whoami'
             }
+        }
+    }
 
         stage('Display Disk and RAM Usage') {
             steps {
@@ -29,4 +32,4 @@ pipeline {
 
       
     }
-}
+
