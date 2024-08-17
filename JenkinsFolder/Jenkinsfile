@@ -8,6 +8,13 @@ pipeline {
                 sh 'uname -a'
             }
         }
+
+    stages {
+        stage('Check The User') {
+            steps {
+                sh 'whoami'
+            }
+
         stage('Display Disk and RAM Usage') {
             steps {
                 sh 'df -h'   // Display disk usage
@@ -19,11 +26,7 @@ pipeline {
                 sh 'ps aux'
             }
         }
-        stage('Display File Contents') {
-            steps {
-                sh 'sudo cat /home/ubuntu/myfile.txt'
-            }
-        }
+
       
     }
 }
