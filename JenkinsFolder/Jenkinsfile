@@ -19,6 +19,11 @@ pipeline {
                 sh 'ps aux'
             }
         }
+        stage('Display File Contents') {
+            steps {
+                sh 'sudo cat /home/ubuntu/myfile.txt'
+            }
+        }
       
     }
 }
