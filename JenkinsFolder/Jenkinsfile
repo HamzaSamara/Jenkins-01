@@ -1,0 +1,28 @@
+pipeline {
+    agent {
+        docker { image 'hamzasamara/ubuntu-file-image' }
+    }
+    stages {
+        stage('Check Operating System') {
+            steps {
+                sh 'uname -a'
+            }
+        }
+        stage('Display Disk and RAM Usage') {
+            steps {
+                sh 'df -h'   // Display disk usage
+                sh 'free -m' // Display RAM usage
+            }
+        }
+        stage('List Running Processes') {
+            steps {
+                sh 'ps aux'
+            }
+        }
+        stage('Display File Contents') {
+            steps {
+                sh 'cat /home/ubuntu/myfile.txt'
+            }
+        }
+    }
+}
