@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'hamzasamara/ubuntu-file-image' }
+        docker { 
+            image 'hamzasamara/ubuntu-file-image'
+            args '-u root' // Run the container as root
+        }
     }
     stages {
         stage('Check Operating System') {
@@ -15,7 +18,6 @@ pipeline {
             }
         }
     
-
         stage('Display Disk and RAM Usage') {
             steps {
                 sh 'df -h'   // Display disk usage
@@ -28,6 +30,4 @@ pipeline {
             }
         }
     }
-      
-    }
-
+}
